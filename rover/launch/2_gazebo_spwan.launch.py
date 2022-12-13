@@ -7,30 +7,31 @@ from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
-  urdf = os.path.join(get_package_share_directory('mr_rehri'),'1_rover.urdf')
-  return LaunchDescription([
-    #   publishes TF for links of the robot without joints
-        Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            name='robot_state_publisher',
-            output='screen',
-            arguments=[urdf]),
-    #  To publish tf for Joints only links
-        Node(
-            package='joint_state_publisher',
-            executable='joint_state_publisher',
-            name='joint_state_publisher',
-            output='screen',
-            ),
+    package_dir = get_package_share_directory('rover')
+    urdf = os.path.join(package_dir,'rover.urdf')
+    return LaunchDescription([
+      #   publishes TF for links of the robot without joints
+          Node(
+              package='robot_state_publisher',
+              executable='robot_state_publisher',
+              name='robot_state_publisher',
+              output='screen',
+              arguments=[urdf]),
+      #  To publish tf for Joints only links
+          Node(
+              package='joint_state_publisher',
+              executable='joint_state_publisher',
+              name='joint_state_publisher',
+              output='screen',
+              ),
 #  Gazebo related stuff required to launch the robot in simulation
-        ExecuteProcess(
-            cmd=['gazebo', '--verbose', '-s', 'libgazebo_ros_factory.so'],
-            output='screen'),
-        Node(
-            package='gazebo_ros',
-            executable='spawn_entity.py',
-            name='urdf_spawner',
-            output='screen',
-            arguments=["-topic", "/robot_description", "-entity", "dolly"])
-  ])
+          ExecuteProcess(
+              cmd=['gazebo', '--verbose', '-s', 'libgazebo_ros_factory.so'],
+              output='screen'),
+          Node(
+              package='gazebo_ros',
+              executable='spawn_entity.py',
+              name='urdf_spawner',
+              output='screen',
+              arguments=["-topic", "/robot_description", "-entity", "dolly"])
+    ])

@@ -225,25 +225,22 @@
 <!-- DIFFENERNTIAL DRIVEEEEEEEEEEEEE -->
 
   <gazebo>
-<plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
-        <left_joint>wheel_front_left_joint</left_joint>
-        <right_joint>wheel_front_right_joint</right_joint>
-        <wheel_separation>0.8</wheel_separation>
-        <wheel_diameter>0.3</wheel_diameter>
-        <max_wheel_torque>20</max_wheel_torque>
-        <max_wheel_acceleration>1.0</max_wheel_acceleration>]
-        <publish_odom>true</publish_odom>
-        <publish_odom_tf>true</publish_odom_tf>
-        <publish_wheel_tf>true</publish_wheel_tf>
+  <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
+          <left_joint>wheel_front_left_joint</left_joint>
+          <right_joint>wheel_front_right_joint</right_joint>
+          <wheel_separation>0.8</wheel_separation>
+          <wheel_diameter>0.3</wheel_diameter>
+          <max_wheel_torque>20</max_wheel_torque>
+          <max_wheel_acceleration>1.0</max_wheel_acceleration>]
+          <publish_odom>true</publish_odom>
+          <publish_odom_tf>true</publish_odom_tf>
+          <publish_wheel_tf>true</publish_wheel_tf>
 
-        <odometry_frame>base_footprint</odometry_frame>
-        <robot_base_frame>chassis</robot_base_frame>
+          <odometry_frame>base_footprint</odometry_frame>
+          <robot_base_frame>chassis</robot_base_frame>
 
-      </plugin>
+         </plugin>
 </gazebo>
-
-
-
 
 <!-- CAMERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
       <gazebo reference="camera">
@@ -252,8 +249,8 @@
       <camera name="head">
         <horizontal_fov>1.3962634</horizontal_fov>
         <image>
-          <width>800</width>
-          <height>800</height>
+          <width>600</width>
+          <height>480</height>
           <format>R8G8B8</format>
         </image>
         <clip>
@@ -268,11 +265,10 @@
       </camera>
       <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
         <alwaysOn>true</alwaysOn>
-        <updateRate>0.0</updateRate>
         <cameraName>/camera</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>camera_link</frameName>
+        <frameName>camera</frameName>
         <hackBaseline>0.07</hackBaseline>
       </plugin>
     </sensor>
@@ -312,6 +308,31 @@
         </noise>
       </ray>
     </sensor>
+    <material>Gazebo/DarkGrey</material>
+  </gazebo> 
+
+
+  <gazebo reference="wheel_back_right">    
+      <material>Gazebo/Red</material>
+  </gazebo> 
+
+  <gazebo reference="wheel_front_right">
+    <material>Gazebo/Red</material>
+  </gazebo> 
+
+  <gazebo reference="wheel_front_left">
+    <material>Gazebo/Red</material>
+  </gazebo> 
+
+  <gazebo reference="wheel_back_left">
+    <material>Gazebo/Red</material>
+  </gazebo> 
+
+  <gazebo reference="chassis">
+    <material>Gazebo/Orange</material>
+  </gazebo> 
+
+  <gazebo reference="lidar">
     <material>Gazebo/DarkGrey</material>
   </gazebo> 
 
