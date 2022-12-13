@@ -43,8 +43,8 @@ class ObstacleAvoidingBot(Node):
         'left':    min(min(scan_data.ranges[240:360]), 100),
         }
         print(self.regions['left']," / ",self.regions['mid']," / ",self.regions['right'])
-
-  
+        
+        
     ## Callback Publisher of velocities called every 0.2 seconds
     def send_cmd_vel(self):
         ## angular and linear velocities are set into object self.velcity
@@ -62,13 +62,14 @@ class ObstacleAvoidingBot(Node):
             print("left")          
         elif(self.regions['left'] < 4 and self.regions['mid'] < 4  and self.regions['right'] < 4 ):
             self.velocity.angular.z=3.14# object ahead take full turn
+            self.velocity.linear.x=-self.linear_vel
             print("reverse")
         else:## lThis code is not completed ->  you have  to add more conditions  ot make it robust
             print("some other conditions are required to be programmed") 
        
         ## lets publish the complete velocity
         self.publisher.publish(self.velocity)
-
+        
 def main(args=None):
     rclpy.init(args=args)
     oab=ObstacleAvoidingBot()

@@ -24,6 +24,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'obstical_avoiding = rover.1_obstical_avoidence:main'
         ],
     },
 )
