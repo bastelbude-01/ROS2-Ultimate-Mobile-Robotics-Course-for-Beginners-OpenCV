@@ -29,8 +29,8 @@
         <material>
           <lighting>1</lighting>
           <script>
-            <uri>/home/luqman/test_blender_models/road/materials/scripts</uri>
-            <uri>/home/luqman/test_blender_models/road/materials/textures</uri>
+            <uri>/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/urdf/road/materials/scripts</uri>
+            <uri>/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/urdf/road/materials/textures</uri>
             <name>road/Diffuse</name>
           </script>
           <shader type='pixel'>

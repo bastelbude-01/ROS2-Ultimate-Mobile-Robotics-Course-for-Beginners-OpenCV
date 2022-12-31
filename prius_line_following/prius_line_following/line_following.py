@@ -34,10 +34,10 @@ class line_detection_and_following(Node):
         ## Supllying constant linear Velocity
         self.velocity.linear.x=0.5
         if(self.error > 0):## go left
-            self.velocity.angular.z=0.15
+            self.velocity.angular.z=0.1
             self.action="Go Left"
         else :## go right
-            self.velocity.angular.z=-0.15
+            self.velocity.angular.z=-0.1
             self.action="Go Right"
 
         ## Publishing completed velocities
@@ -51,7 +51,7 @@ class line_detection_and_following(Node):
         ## Defining the color Upper bound and Lower bound limits to extract 
         light_line = numpy.array([ 100,100,100])
         dark_line = numpy.array([200,200,200])
-        mask = cv2.inRange(image, light_line,dark_line)
+        mask = cv2.inRange(frame, light_line,dark_line)
             ##### Boundaries Extraction
         ## applying the canny edge dector function
         canny= cv2.Canny(mask,40,10)

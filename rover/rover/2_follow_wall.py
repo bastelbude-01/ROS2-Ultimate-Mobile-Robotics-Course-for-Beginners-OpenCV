@@ -38,9 +38,9 @@ class follow_wall_bot(Node):
         ## We have 360 data points so we divide them in 3 region
         ## we say if there is something in the region get the smallest distance value of a point in the area
         
-        self.region_1= min(min(scan_data.ranges[0:20])   , 100 )
-        self.region_2= min(min(scan_data.ranges[20:40])  , 100 )
-        self.region_3= min(min(scan_data.ranges[40:60])  , 100 )
+        self.region_1= min(min(scan_data.ranges[0:30])   , 100 )
+        self.region_2= min(min(scan_data.ranges[30:60])  , 100 )
+        self.region_3= min(min(scan_data.ranges[60:90])  , 100 )
         ## region_3 is Left most , region_2 is middle one and region_1 is right most 
         print(round(self.region_3,3) ,"/",round(self.region_2,3),"/",round(self.region_1,3),"/",self.velocity.angular.z,"/",self.case )
     
@@ -67,7 +67,7 @@ class follow_wall_bot(Node):
             if(self.region_3 > 4 and self.region_2 > 4):
                 self.case="TURN"
                 self.velocity.linear.x= 0.4 ## increasing speed
-                self.velocity.angular.z=-1.57 ## sharp right turn
+                self.velocity.angular.z=-0.57 ## sharp right turn
         ## Publishing Complete values
         self.publisher.publish(self.velocity)
 

@@ -84,7 +84,7 @@
         <visual name='chassis_visual'>
           <geometry>
             <mesh>
-              <uri>/home/luqman/ros2_workspace/src/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
+              <uri>/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
               <scale>0.01 0.01 0.01</scale>
               <submesh>
                 <name>Hybrid</name>
@@ -96,7 +96,7 @@
         <visual name='interior_visual'>
           <geometry>
             <mesh>
-              <uri>/home/luqman/ros2_workspace/src/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
+              <uri>/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
               <scale>0.01 0.01 0.01</scale>
               <submesh>
                 <name>Hybrid_Interior</name>
@@ -108,7 +108,7 @@
         <visual name='windows_visual'>
           <geometry>
             <mesh>
-              <uri>/home/luqman/ros2_workspace/src/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
+              <uri>/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
               <scale>0.01 0.01 0.01</scale>
               <submesh>
                 <name>Hybrid_Windows</name>
@@ -351,7 +351,7 @@
           <pose>0 0 0 1.3021 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/luqman/ros2_workspace/src/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
+              <uri>/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
               <scale>0.01 0.01 0.01</scale>
               <submesh>
                 <name>Steering_Wheel</name>
@@ -450,7 +450,7 @@
           <pose>0.04 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/luqman/ros2_workspace/src/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
+              <uri>/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
               <scale>0.01 0.01 0.01</scale>
               <submesh>
                 <name>Wheel_Front_Left_</name>
@@ -511,7 +511,7 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/luqman/ros2_workspace/src/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
+              <uri>/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
               <scale>0.01 0.01 0.01</scale>
               <submesh>
                 <name>Wheel_Front_Right</name>
@@ -571,7 +571,7 @@
           <pose>0.04 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/luqman/ros2_workspace/src/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
+              <uri>/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
               <scale>0.01 0.01 0.01</scale>
               <submesh>
                 <name>Wheel_Front_Left_</name>
@@ -631,7 +631,7 @@
           <pose>-0.04 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/luqman/ros2_workspace/src/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
+              <uri>/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/urdf/prius_hybrid/meshes/Hybrid.obj</uri>
               <scale>0.01 0.01 0.01</scale>
               <submesh>
                 <name>Wheel_Front_Right</name>
@@ -916,8 +916,8 @@
           <material>
             <lighting>1</lighting>
             <script>
-              <uri>/home/luqman/test_blender_models/road/materials/scripts</uri>
-              <uri>/home/luqman/test_blender_models/road/materials/textures</uri>
+              <uri>/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/urdf/road/materials/scripts</uri>
+              <uri>/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/urdf/road/materials/textures</uri>
               <name>road/Diffuse</name>
             </script>
             <shader type='pixel'>

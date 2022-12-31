@@ -7,7 +7,7 @@ def generate_launch_description():
   return LaunchDescription([
    
         ExecuteProcess(
-            cmd=['gazebo', '--verbose', '/home/luqman/ros2_workspace/src/prius_line_following/world/prius_on_track.world'],
+            cmd=['gazebo', '--verbose', '/home/ros2/udemy_ws/src/ROS2-Ultimate-Mobile-Robotics-Course-for-Beginners-OpenCV/prius_line_following/world/prius_on_track.world'],
             output='screen'),
   
   ])
