@@ -25,7 +25,8 @@ setup(
     entry_points={
         'console_scripts': [
             'obstical_avoiding = rover.1_obstical_avoidence:main',
-            'follow_wall = rover.2_follow_wall:main'
+            'follow_wall = rover.2_follow_wall:main',
+            'wall_runner = rover.wall_runner:main'
         ],
     },
 )
