@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<robot name="udemy_bot">
+
+  <link name="base_footprint"/>
+
+
+        <!-- ///////////////////  BASE LINK ////////////////-->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://pi_rover/meshes/base.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+        <geometry>
+            <mesh filename="package://pi_rover/meshes/base.dae"/>
+        </geometry>
+    </collision>
+    <inertial>
+        <mass value="1.0"/>
+        <inertia ixx="0.00355" iyy="0.01265" izz="0.013832" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+
+  <joint name="base_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.14" rpy="0.0 0.0 0.0"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+<!-- ///////////////////  LEFT WHEEL ////////////////-->
+  <link name="left_wheel_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://pi_rover/meshes/wheel.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+        <geometry>
+            <mesh filename="package://pi_rover/meshes/wheel.dae"/>
+        </geometry>
+    </collision>
+    <inertial>
+        <mass value="1.0"/>
+        <inertia ixx="0.001444223" iyy="0.00280875" izz="0.001444223" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+
+  <joint name="left_wheel_joint" type="continuous">
+    <origin xyz="-0.24 0.14 -0.04" rpy="0 0 1.57"/>
+    <parent link="base_link"/>
+    <child link="left_wheel_link"/>
+    <axis xyz="0.0 -1.0 0.0"/>    
+  </joint>
+<!-- ///////////////////  RIGHT WHEEL ////////////////-->
+<link name="right_wheel_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://pi_rover/meshes/wheel.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+        <geometry>
+            <mesh filename="package://pi_rover/meshes/wheel.dae"/>
+        </geometry>
+    </collision>
+    <inertial>
+        <mass value="1.0"/>
+        <inertia ixx="0.001444223" iyy="0.00280875" izz="0.001444223" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+
+  <joint name="right_wheel_joint" type="continuous">
+    <origin xyz="0.24 0.14 -0.04" rpy="0 0 -1.57"/>
+    <parent link="base_link"/>
+    <child link="right_wheel_link"/>
+    <axis xyz="0.0 1.0 0.0"/>
+  </joint>
+<!-- ///////////////////  CASTER HOLDER ////////////////-->
+<link name="caster_holder">
+    <visual>
+      <geometry>
+        <mesh filename="package://pi_rover/meshes/caster_holder.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+        <geometry>
+            <mesh filename="package://pi_rover/meshes/caster_holder.dae"/>
+        </geometry>
+    </collision>
+    <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0001295" iyy="0.0001295" izz="0.000199322" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+
+  <joint name="caster_holder_joint" type="fixed">
+    <origin xyz="0.0 -0.16 -0.02" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="caster_holder"/>
+  </joint>
+<!-- ///////////////////  CASTER WHEEL ////////////////-->
+<link name="wheel_caster_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://pi_rover/meshes/caster_wheel.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+        <geometry>
+            <mesh filename="package://pi_rover/meshes/caster_wheel.dae"/>
+        </geometry>
+    </collision>
+    <inertial>
+        <mass value="1.0"/>
+        <inertia ixx="0.0001295" iyy="0.0001295" izz="0.000199322" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+
+  <joint name="caster_wheel_joint" type="continuous">
+    <origin xyz="0.0 -0.001 -0.08" rpy="0.0 0.0 0.0"/>
+    <parent link="caster_holder"/>
+    <child link="wheel_caster_link"/>
+    <axis xyz="1.0 0.0 0.0"/>
+  </joint>
+  <gazebo reference="wheel_caster_link">
+    <mu1 value="0.001"/>
+    <mu2 value="0.001"/>
+</gazebo>
+<!-- ///////////////////  COVER ////////////////-->
+<link name="cover">
+    <visual>
+      <geometry>
+        <mesh filename="package://pi_rover/meshes/cover.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+        <geometry>
+            <mesh filename="package://pi_rover/meshes/cover.dae"/>
+        </geometry>
+    </collision>
+    <inertial>
+        <mass value="0.3"/>
+        <inertia ixx="0.00355" iyy="0.01265" izz="0.013832" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+
+  <joint name="cover_joint" type="fixed">
+    <origin xyz="0.0044 -0.01 0.068" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="cover"/>
+  </joint>
+
+  <!-- ///////////////////  CAMERA ////////////////-->
+ 
+  <link name="camera">
+    <visual>
+      <geometry>
+        <mesh filename="package://pi_rover/meshes/rpi_camera.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+        <geometry>
+            <mesh filename="package://pi_rover/meshes/rpi_camera.dae"/>
+        </geometry>
+    </collision>
+    <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="0.0001295" iyy="0.0001295" izz="0.000199322" ixy="0.0" ixz="0.0" iyz="0.0" />
+    </inertial>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.0 -0.22 0.19" rpy="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="camera"/>    
+  </joint>
+
+  <link name="cam_sensor_link"/>
+
+  <joint name="camera_sensor_joint" type="fixed">
+    <origin xyz="0.0 -0.23 0.19" rpy="0.0 0.0 -1.57"/>
+    <parent link="base_link"/>
+    <child link="cam_sensor_link"/>    
+  </joint>
+<!-- ///////////////////  LIDAR  ////////////////-->
+  <link name="lidar_link"/>
+
+  <joint name="lidar_joint" type="fixed">
+    <origin xyz="0 -0.25 0.1" rpy="0.0 0 -3.14" />
+    <parent link="base_link" />
+    <child link="lidar_link" />
+  </joint>
+
+
+  <!--  GAZEBO   PLUGINS -->
+  
+
+  <gazebo>
+        <plugin filename="libgazebo_ros_diff_drive.so" name="udemy_bot_controller">
+          <odometry_frame>odom</odometry_frame>
+          <commandTopic>cmd_vel</commandTopic>
+          <publish_odom>true</publish_odom>
+          <publish_odom_tf>true</publish_odom_tf>
+          <update_rate>30.0</update_rate>
+          <left_joint>left_wheel_joint</left_joint>
+          <right_joint>right_wheel_joint</right_joint>
+          <wheel_separation>0.47</wheel_separation>
+          <wheel_diameter>0.2</wheel_diameter>
+          <max_wheel_torque>200</max_wheel_torque>
+          <max_wheel_acceleration>10.0</max_wheel_acceleration>
+          <robotBaseFrame>base_link</robotBaseFrame>        
+    </plugin>
+  </gazebo>
+  
+<!-- ///////////////////////////////////////// Camera Plugin ////////////////////// -->
+ 
+  <gazebo reference="cam_sensor_link">
+    <sensor type="camera" name="udemy_bot_camera">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.7</horizontal_fov>
+        <image>
+          <width>1280</width>
+          <height>720</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="udemy_bot_camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <visualize>true</visualize>
+        <updateRate>0.0</updateRate>
+        <cameraName>UB/camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- ///////////////////////////////////////// Lidar Plugin ////////////////////// -->
+
+  <gazebo reference="lidar_link">
+    <sensor name="UB_lidar" type="ray">
+      <visualize>false</visualize>
+      <update_rate>30.0</update_rate>
+      <plugin filename="libgazebo_ros_ray_sensor.so" name="lidar_plugin">
+      <ros>
+        <remapping>~/out:=scan</remapping>
+      </ros>
+      <output_type>sensor_msgs/LaserScan</output_type>
+      <frame_name>lidar_link</frame_name>
+      </plugin>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>0.00</min_angle>
+            <max_angle>3.14</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.01</min>
+          <max>3</max>
+          <resolution>0.015</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+    </sensor>
+  </gazebo>
+
+
+</robot>
